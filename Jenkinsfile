@@ -5,10 +5,8 @@ pipeline {
         stage('Build') {
             steps {
                 echo 'Building HomeoCare_2.0...'
-                // Use 'dir' to go into the subfolder where package.json lives
-                dir('app') { 
-                    sh 'npm install'
-                }
+                // This will now find the package.json you just created
+                sh 'npm install'
             }
         }
         stage('Test') {
