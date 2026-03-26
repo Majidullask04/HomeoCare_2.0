@@ -1,15 +1,18 @@
 pipeline {
     agent any
+
     stages {
-        stage('Fetch Code') {
-            steps {
-                git branch: 'main', credentialsId: 'github-token', url: 'YOUR_GITHUB_URL_HERE'
-            }
-        }
         stage('Build') {
             steps {
-                echo 'Building...'
-                // Add your build command here (e.g., npm install)
+                echo 'Building HomeoCare_2.0...'
+                // This command installs your project's libraries
+                sh 'npm install'
+            }
+        }
+        stage('Test') {
+            steps {
+                echo 'Running tests...'
+                // sh 'npm test'
             }
         }
     }
